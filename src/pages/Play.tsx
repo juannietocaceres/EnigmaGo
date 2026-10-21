@@ -120,7 +120,7 @@ function Lobby({ me, teams, kase, event }: { me: Team; teams: Team[]; kase: Case
         <span className="mt-6 flex items-center gap-2 text-sm text-ink3"><span className="h-2 w-2 animate-pulse rounded-full bg-tape" />Esperando a que empiece</span>
       </div>
       <div className="card mt-12 p-5">
-        <p className="text-sm text-ink3">{teams.length} equipo{teams.length === 1 ? '' : 's'} conectados</p>
+        <p className="text-sm text-ink3">{teams.length} equipo{teams.length === 1 ? ' conectado' : 's conectados'}</p>
         <ul className="mt-3 flex flex-wrap gap-2">{teams.map(t => (
           <li key={t.id} className="flex items-center gap-2 rounded-full bg-s2 px-3 py-1.5 text-sm font-bold"><span className="team-dot !h-2.5 !w-2.5" style={{ color: t.color, background: t.color }} />{t.name}</li>))}</ul>
       </div>
@@ -340,7 +340,7 @@ function Results({ me, teams, kase, event, verdict }: { me: Team; teams: Team[];
     <Phone>
       <p className="text-ink3">{kase.title}</p>
       <h1 className="title mt-1 text-[42px]">{!accused ? 'Se acabó el tiempo.' : me.accused_ok ? 'Caso resuelto.' : 'Se les escapó.'}</h1>
-      <p className="mt-3 text-lg text-ink2">{me.name} va de <b className="text-tape">{pos}º</b> entre {ranked.length} equipos.</p>
+      <p className="mt-3 text-lg text-ink2">{me.name} {ranked.length > 1 ? <>va de <b className="text-tape">{pos}º</b> entre {ranked.length} equipos.</> : <>es el único equipo por ahora.</>}</p>
 
       <div className="card mt-7 p-5">
         {[[`Pistas acertadas, ${me.correct} × 30`, me.correct * 30], [`Pistas falladas, ${me.wrong} × 10`, me.wrong * 10], [accused ? `Acusación ${me.accused_ok ? 'correcta' : 'fallida'}` : 'Sin acusación', me.accused_ok ? 50 : 0]].map(([l, v]) => (

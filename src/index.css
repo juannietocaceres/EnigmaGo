@@ -20,6 +20,7 @@
   --ease-out-soft: cubic-bezier(.2, .8, .2, 1);
 }
 
+@layer components {
 :root { color-scheme: dark; --line: rgba(255,255,255,.08); --line2: rgba(255,255,255,.15); }
 html, body, #root { min-height: 100%; }
 body {
@@ -47,7 +48,7 @@ button:disabled { cursor: not-allowed; }
 /* botones */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 56px; padding: 0 22px; border-radius: 16px;
-  font: 800 15px var(--font-sans); letter-spacing: .06em; text-transform: uppercase; transition: transform .15s, opacity .25s, background .2s;
+  font: 800 15px var(--font-sans); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; transition: transform .15s, opacity .25s, background .2s;
 }
 .btn:active:not(:disabled) { transform: scale(.97); }
 .btn:disabled { opacity: .38; box-shadow: none !important; }
@@ -160,6 +161,8 @@ button:disabled { cursor: not-allowed; }
 
 .typed::after { content: '▌'; animation: blink .8s infinite; color: #6b5634; }
 .typed.done::after { content: ''; }
+
+}
 
 /* impresión de QR */
 @media print {

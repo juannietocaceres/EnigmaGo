@@ -116,7 +116,7 @@ export default function Console() {
               </div>
             )}
             <div className="flex items-baseline justify-between">
-              <h2 className="text-lg font-bold">{live ? 'Ranking en vivo' : 'Equipos'}</h2>
+              <h2 className="text-lg font-bold">{event.status === 'finished' ? 'Ranking final' : live ? 'Ranking en vivo' : 'Equipos'}</h2>
               <span className="text-sm text-ink3">{teams.length} de 12</span>
             </div>
             {teams.length === 0
